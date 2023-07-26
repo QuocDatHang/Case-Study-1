@@ -43,7 +43,8 @@ html {
 }
 
 #iconBar .icon:hover {
-    background: rgb(212, 210, 210);
+    background: #e9e5e5;
+    cursor: pointer;
 }
 
 .icon {
@@ -54,7 +55,7 @@ html {
     color: black;
     text-decoration: none;
     padding: 0 30px;
-
+    line-height: 100%;
 }
 
 #functionBar {
@@ -92,12 +93,76 @@ html {
     background-color: #f5f5f5;
 }
 
+.login {
+    width: 250px;
+    height: 200px;
+    background-color:  #f5f5f5;
+    border-radius: 10px;
+    border: 1px solid grey;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    right: -100%;
+}
+
+.inputLogin {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 30px 30px 30px;
+    margin-left: 24px;
+}
+
+.login .closeLogin{
+    margin-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.inputLogin input {
+    width: 200px;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding-left: 10px;
+}
+
+.inputLogin button {
+    cursor: pointer;
+    width: 200px;
+    height: 25px;
+    border-radius: 12px;
+    border: 1px solid grey;
+    background-color: rgb(135, 143, 250);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.inputLogin button:hover {
+    background-color: rgb(57, 68, 216);
+}
+
 #user {
-    padding-top: 4px;
+    padding-top: 12px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
 }
 
 #bag {
-    padding-top: 4px;
+    padding-top: 12px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+#bag:hover,
+#user:hover {
+    border-radius: 100%;
+    background-color: #e9e5e5;
 }
 
 #slider {
@@ -124,7 +189,9 @@ html {
     width: 1311px;
 }
 
-#listMenProducts {
+#listMenProducts,
+#listWomenProducts,
+#listKidsProducts {
     width: 100%;
     height: 450px;
     padding: 0 65px;
@@ -132,7 +199,9 @@ html {
     justify-content: space-between;
 }
 
-#listMenProducts img {
+#listMenProducts img,
+#listWomenProducts img,
+#listKidsProducts img {
     width: 100%;
     height: 330px;
 }
@@ -164,7 +233,7 @@ html {
     background-color: rgb(247, 63, 63);
 }
 
-#menStyle {
+#menStyle, #womenStyle, #kidsStyle {
     font-size: 20px;
     line-height: 100px;
     position: relative;
@@ -187,7 +256,7 @@ html {
 
 .closeButton {
     text-align: left;
-    padding-top: 10px;
+    padding-top: 15px;
     cursor: pointer;
 }
 
@@ -229,4 +298,54 @@ html {
     background-color: rgb(43, 57, 248);
     cursor: pointer;
 }
-#footer {}
+#footer {
+    background-color: rgb(7, 10, 43);
+    height: 250px;
+    display: flex;
+}
+    
+.container {
+    display: flex;
+    justify-content: space-around;
+    width: 700px;
+    padding: 40px;
+    padding-right: 80px;
+    font-size: 12px;
+}
+.container li {
+    list-style-type: none;
+    color: white;
+    padding: 8px;
+}
+
+.socialIcon ul {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    margin-top: 40px;
+    list-style-type: none;
+    width: 200px;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.socialIcon ul li {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color:  #f5f5f5;
+    border-radius: 100%;
+}
+
+.socialIcon ul li:hover {
+    background-color: #a19f9f;
+}
+
+.socialIcon ul li i{
+    line-height: 40px;
+}
+
+.socialIcon{
+    width: 520px;
+    display: inline-block;
+}
