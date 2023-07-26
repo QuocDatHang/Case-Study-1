@@ -163,6 +163,7 @@ html {
 #user:hover {
     border-radius: 100%;
     background-color: #e9e5e5;
+    cursor: pointer;
 }
 
 #slider {
@@ -231,6 +232,7 @@ html {
 
 .addToCart:hover {
     background-color: rgb(247, 63, 63);
+    cursor: pointer;
 }
 
 #menStyle, #womenStyle, #kidsStyle {
