@@ -208,7 +208,7 @@ html {
 
 .product {
     width: 23%;
-    background-color: bisque;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
 }
