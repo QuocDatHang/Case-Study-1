@@ -82,6 +82,7 @@ function addProductToCart(id) {
     }
     listOrdered.push(cart);
     renderCart(listOrdered);
+    alert("Product Added");
 }
 
 
@@ -165,3 +166,9 @@ closeUserButton.addEventListener('click', function(){
     document.querySelector('.login').style.right = '100%'
     console.log(closeUserButton);
 })
+function paybtn(){
+    if (listOrdered.length != 0){
+        alert('Pay Successful')
+        location.reload();
+    }
+}
