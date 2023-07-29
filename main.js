@@ -137,15 +137,13 @@ function renderCart(listOrdered) {
 }
 
 function inputchange(id, value) {
-    if (value <= 0) {
-        alert('no valid');
-        return;
-    }
-    for (let i = 0; i < listOrdered.length; i++) {
-        if (listOrdered[i].id == id) {
-            listOrdered[i].quantity = value;
-            listOrdered[i].total = listOrdered[i].quantity * listOrdered[i].price
-            break;
+    if (value > 0) {
+        for (let i = 0; i < listOrdered.length; i++) {
+            if (listOrdered[i].id == id) {
+                listOrdered[i].quantity = value;
+                listOrdered[i].total = listOrdered[i].quantity * listOrdered[i].price
+                break;
+            }
         }
     }
     renderCart(listOrdered)
