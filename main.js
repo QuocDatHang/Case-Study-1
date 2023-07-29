@@ -24,11 +24,11 @@ let womenProducts = [
 let kidsProducts = [
     new Products(9, "Nike Sportswear Older Kids' T-Shirt", 25, './Images/kids1.png'),
     new Products(10, "Nike Sportswear Older Kids' Cotton T-Shirt", 35, './Images/kids2.png'),
-    new Products(11, "Nike Sportswear Older Kids' Cotton T-Shirt" , 40, './Images/kids3.png'),
+    new Products(11, "Nike Sportswear Older Kids' Cotton T-Shirt", 40, './Images/kids3.png'),
     new Products(12, "Nike Dri-FIT Multi+Older Kids' (Boys') Sleeveless Training Top", 45, './Images/kids4.png')
 ]
 
-function renderProducts(nameProducts) {
+function renderProducts(nameProducts, element) {
     let str = '';
     for (let i = 0; i < nameProducts.length; i++) {
         str += `<div class="product">
@@ -38,19 +38,20 @@ function renderProducts(nameProducts) {
                     <button class='addToCart' onclick='addProductToCart(${nameProducts[i].id})'>Add To Cart</button>
                 </div>`;
     }
-    if (nameProducts == menProducts){
-        document.getElementById("listMenProducts").innerHTML = str;
-    }
-    if (nameProducts == womenProducts){
-        document.getElementById("listWomenProducts").innerHTML = str;
-    }
-    if (nameProducts == kidsProducts){
-        document.getElementById("listKidsProducts").innerHTML = str;
-    }
+    element.innerHTML = str;
+    // if (nameProducts == menProducts){
+    //     document.getElementById("listMenProducts").innerHTML = str;
+    // }
+    // if (nameProducts == womenProducts){
+    //     document.getElementById("listWomenProducts").innerHTML = str;
+    // }
+    // if (nameProducts == kidsProducts){
+    //     document.getElementById("listKidsProducts").innerHTML = str;
+    // }
 }
-renderProducts(menProducts);
-renderProducts(womenProducts);
-renderProducts(kidsProducts);
+renderProducts(menProducts, document.getElementById("listMenProducts"));
+renderProducts(womenProducts, document.getElementById("listWomenProducts"));
+renderProducts(kidsProducts, document.getElementById("listKidsProducts"));
 
 
 
@@ -64,7 +65,7 @@ function addProductToCart(id) {
             return
         }
     }
-    // Id tu tang
+
     let idCart;
     if (listOrdered.length == 0) {
         idCart = 1;
@@ -136,38 +137,44 @@ function renderCart(listOrdered) {
 }
 
 function inputchange(id, value) {
+    if (value <= 0) {
+        alert('no valid');
+        return;
+    }
     for (let i = 0; i < listOrdered.length; i++) {
         if (listOrdered[i].id == id) {
             listOrdered[i].quantity = value;
             listOrdered[i].total = listOrdered[i].quantity * listOrdered[i].price
+            break;
         }
     }
     renderCart(listOrdered)
 }
 
+
 const cartButton = document.querySelector('.fa-bag-shopping');
 const closeButton = document.querySelector('.closeButton .fa-x');
-cartButton.addEventListener('click', function(){
+cartButton.addEventListener('click', function () {
     document.querySelector('#cart').style.right = '0'
     console.log(cartButton);
 })
-closeButton.addEventListener('click', function(){
+closeButton.addEventListener('click', function () {
     document.querySelector('#cart').style.right = '100%'
     console.log(closeButton);
 })
 
 const userButton = document.querySelector('.fa-user');
 const closeUserButton = document.querySelector('.closeLogin .fa-x');
-userButton.addEventListener('click', function(){
+userButton.addEventListener('click', function () {
     document.querySelector('.login').style.right = '0'
     console.log(userButton);
 })
-closeUserButton.addEventListener('click', function(){
+closeUserButton.addEventListener('click', function () {
     document.querySelector('.login').style.right = '100%'
     console.log(closeUserButton);
 })
-function paybtn(){
-    if (listOrdered.length != 0){
+function paybtn() {
+    if (listOrdered.length != 0) {
         alert('Pay Successful')
         location.reload();
     }
